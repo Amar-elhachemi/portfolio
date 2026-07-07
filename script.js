@@ -230,6 +230,30 @@ window.addEventListener('scroll', ()=>{
 });
 document.getElementById('toTop').addEventListener('click', ()=> window.scrollTo({top:0, behavior: reduced ? 'auto' : 'smooth'}));
 
+/* ================= mobile hamburger nav ================= */
+(function mobileNav(){
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileNav');
+  if(!toggle || !menu) return;
+  function closeMenu(){
+    toggle.classList.remove('open');
+    menu.classList.remove('open');
+    toggle.setAttribute('aria-expanded','false');
+    toggle.setAttribute('aria-label','Open menu');
+  }
+  function openMenu(){
+    toggle.classList.add('open');
+    menu.classList.add('open');
+    toggle.setAttribute('aria-expanded','true');
+    toggle.setAttribute('aria-label','Close menu');
+  }
+  toggle.addEventListener('click', ()=>{
+    menu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+  menu.querySelectorAll('a').forEach(a=> a.addEventListener('click', closeMenu));
+  window.addEventListener('resize', ()=>{ if(window.innerWidth > 700) closeMenu(); });
+})();
+
 /* ================= custom cursor ================= */
 if(!touch){
   const cc = document.getElementById('cross-cursor');
