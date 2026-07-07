@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amar Elhachemi Cherki — Full-Stack Developer</title>
+<meta name="description" content="Laravel & Python developer building gaming tools. Based in Algeria.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Orbitron:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="preloader">
+  <div class="pre-term">
+    <div class="pre-line" id="preLine">&gt; acquiring signal...</div>
+    <div class="pre-bar-track"><div class="pre-bar-fill" id="preFill"></div></div>
+    <div class="pre-pct" id="prePct">0%</div>
+  </div>
+  <div id="gateContent">
+    <div class="gate-reticle"><span></span><span></span><span></span><span></span></div>
+    <div class="gate-title">AMAR<span>.</span>DEV</div>
+    <div class="gate-sub">full-stack developer // gaming toolsmith</div>
+    <button id="enterBtn">
+      <span class="enter-ring"></span>
+      <span class="enter-flash"></span>
+      <span class="enter-label">&gt; ENTER_SITE</span>
+    </button>
+  </div>
+</div>
+<div id="wipe"><div class="wipe-shape s1"></div><div class="wipe-shape s2"></div><div class="wipe-shape s3"></div></div>
+
+<canvas id="radar"></canvas>
+<div id="scanlines"></div>
+<div class="vignette"></div>
+<div class="noise"></div>
+<div id="progress"></div>
+<div id="cursor-trail"></div>
+<div id="cross-cursor"><div class="glow"></div><div class="dot"></div></div>
+<button id="toTop" aria-label="Scroll to top">↑</button>
+
+<div id="hud-frame">
+  <div class="hud-corner hud-tl"></div>
+  <div class="hud-corner hud-tr"></div>
+  <div class="hud-corner hud-bl"></div>
+  <div class="hud-corner hud-br"></div>
+  <div class="hud-readout hud-top-left">SYS // <span class="ok">ONLINE</span></div>
+  <div class="hud-readout hud-top-right" id="hudClock">--:--:--Z</div>
+  <div class="hud-readout hud-bottom-left" id="hudCoords">36.3011° N / 2.2246° E</div>
+  <div class="hud-readout hud-bottom-right">MILIANA, DZ</div>
+</div>
+
+<nav id="targetRail">
+  <div class="rail-line"></div>
+  <a class="target" data-target="demo"><span class="reticle"><i></i><i></i><i></i><i></i></span><em>weapon_config</em></a>
+  <a class="target" data-target="about"><span class="reticle"><i></i><i></i><i></i><i></i></span><em>whoami</em></a>
+  <a class="target" data-target="stack"><span class="reticle"><i></i><i></i><i></i><i></i></span><em>loadout</em></a>
+  <a class="target" data-target="projects"><span class="reticle"><i></i><i></i><i></i><i></i></span><em>missions</em></a>
+  <a class="target" data-target="certs"><span class="reticle"><i></i><i></i><i></i><i></i></span><em>service_record</em></a>
+  <a class="target" data-target="contact"><span class="reticle"><i></i><i></i><i></i><i></i></span><em>transmit</em></a>
+</nav>
+
+<header>
+  <div class="nav">
+    <div class="logo">amar<span>@</span>portfolio<span>:~$</span></div>
+    <nav class="navlinks">
+      <a href="#demo">try it</a>
+      <a href="#about">about</a>
+      <a href="#projects">projects</a>
+      <a href="#certs">certs</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-tagline" id="acquireLine">&gt; ACQUIRING TARGET...</div>
+  <div class="term">
+    <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-label">TARGET LOCKED</span></div>
+    <div class="term-body" id="termBody"></div>
+  </div>
+
+  <h1 class="hero-title" id="heroTitle" data-text="Building tools gamers actually use."><span id="titlePart1">Building tools </span><span class="accent" id="titleAccent">gamers</span><span id="titlePart2"> actually use.</span></h1>
+  <p class="hero-sub">I'm Amar Elhachemi Cherki — a Laravel &amp; Python developer in Algeria. I'm building gaming utilities under ELHASH.GG. Trilingual, self-taught, hospitality-trained in reading what people actually need. Scroll down — the crosshair generator below is live.</p>
+
+  <div class="hero-tags">
+    <span class="tag">Laravel</span><span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">JavaScript</span><span class="tag">Playwright / OSINT</span>
+  </div>
+
+  <div class="hero-cta">
+    <a class="btn btn-primary" href="#demo">&gt; try_the_demo</a>
+    <a class="btn btn-ghost" href="https://github.com/Amar-elhachemi" target="_blank" rel="noopener">github.com/Amar-elhachemi</a>
+  </div>
+</section>
+
+<section id="demo" class="reveal layer">
+  <div class="deco deco-tl deco-ring"></div><div class="deco deco-br deco-tri"></div><div class="deco deco-mid deco-cross"></div>
+  <div class="cmd-label">run crosshair_generator.js</div>
+  <h2 class="section-title">Play with it — live CS2 crosshair generator</h2>
+  <div class="demo-wrap">
+    <div class="canvas-box" id="canvasBox">
+      <div class="grid-overlay"></div>
+      <canvas id="xhairCanvas" width="500" height="500"></canvas>
+      <div class="range-hint">click to fire</div>
+      <div class="shot-counter">shots: <span id="shotCount">0</span></div>
+    </div>
+    <div class="controls">
+      <div class="swatch-row">
+        <label class="toggle" style="gap:10px;">color <input type="color" id="cColor" value="#FF6A3D"></label>
+        <button class="btn btn-ghost randbtn" id="randomize">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg>
+          randomize
+        </button>
+      </div>
+      <div class="ctrl-row"><label>length <span class="val" id="vLength">10</span></label><input type="range" id="cLength" min="1" max="20" value="10"></div>
+      <div class="ctrl-row"><label>thickness <span class="val" id="vThick">2</span></label><input type="range" id="cThick" min="1" max="8" value="2"></div>
+      <div class="ctrl-row"><label>gap <span class="val" id="vGap">3</span></label><input type="range" id="cGap" min="0" max="15" value="3"></div>
+      <div class="ctrl-row"><label>outline <span class="val" id="vOutline">1</span></label><input type="range" id="cOutline" min="0" max="4" value="1"></div>
+      <div class="ctrl-row"><label>alpha <span class="val" id="vAlpha">255</span></label><input type="range" id="cAlpha" min="0" max="255" value="255"></div>
+      <div class="toggle-row">
+        <label class="toggle"><input type="checkbox" id="cDot"> center dot</label>
+        <label class="toggle"><input type="checkbox" id="cT"> t-style (no top)</label>
+      </div>
+      <div class="code-out-wrap">
+        <pre class="code-out" id="codeOut"></pre>
+        <button class="copy-btn" id="copyBtn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="1"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          <span id="copyLabel">copy config</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="reveal layer">
+  <div class="deco deco-br deco-ring"></div><div class="deco deco-tl deco-square"></div>
+  <div class="cmd-label">whoami --verbose</div>
+  <h2 class="section-title">About</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I spent years as a <strong>chef de rang</strong> across hotels in Blida, Tizi-Ouzou, and Chéraga before moving into development — hospitality is where I actually learned to read what a person in front of me needs, fast, without friction. That instinct now shows up in every product I ship.</p>
+      <p>Right now I'm building <strong>ELHASH.GG</strong>, a Laravel toolkit for competitive CS2 and Valorant players — pro settings databases, map callouts, calculators, and the crosshair generator you just played with above (still a work in progress, code's on GitHub).</p>
+      <p>I'm finishing a degree in <strong>English Language and Literature</strong>, and I've worked as a professional EN/FR/AR translator since 2020 — which is why my documentation, client pitches, and UI copy tend to read clean.</p>
+    </div>
+    <div class="stat-card">
+      <div class="stat-row"><span>location</span><span>Miliana, Algeria</span></div>
+      <div class="stat-row"><span>focus</span><span>Full-Stack / Laravel</span></div>
+      <div class="stat-row"><span>languages</span><span>AR / FR / EN</span></div>
+      <div class="stat-row"><span>learning</span><span>OSINT, Security</span></div>
+      <div class="stat-row"><span>side project</span><span>ELHASH.GG</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="stack" class="reveal layer">
+  <div class="deco deco-tl deco-tri"></div><div class="deco deco-br deco-cross"></div>
+  <div class="cmd-label">ls loadout/</div>
+  <h2 class="section-title">Stack</h2>
+  <div class="skill-list" id="skillList">
+    <div class="skill" data-level="85"><div class="skill-head"><span>Laravel / PHP</span><span class="lvl">daily driver</span></div><div class="bar"><div class="bar-fill"></div></div></div>
+    <div class="skill" data-level="75"><div class="skill-head"><span>Python</span><span class="lvl">automation & scraping</span></div><div class="bar"><div class="bar-fill"></div></div></div>
+    <div class="skill" data-level="70"><div class="skill-head"><span>JavaScript</span><span class="lvl">front-end tooling</span></div><div class="bar"><div class="bar-fill"></div></div></div>
+    <div class="skill" data-level="65"><div class="skill-head"><span>MySQL</span><span class="lvl">schema design</span></div><div class="bar"><div class="bar-fill"></div></div></div>
+    <div class="skill" data-level="60"><div class="skill-head"><span>HTML / CSS</span><span class="lvl">design systems</span></div><div class="bar"><div class="bar-fill"></div></div></div>
+    <div class="skill" data-level="40"><div class="skill-head"><span>OSINT / Security</span><span class="lvl">learning</span></div><div class="bar"><div class="bar-fill"></div></div></div>
+  </div>
+</section>
+
+<section id="projects" class="reveal layer">
+  <div class="deco deco-br deco-ring"></div><div class="deco deco-tl deco-line"></div><div class="deco deco-mid deco-square"></div>
+  <div class="cmd-label">cat missions.json</div>
+  <h2 class="section-title">Projects</h2>
+  <div class="proj-grid">
+    <div class="card">
+      <span class="card-reticle"><i></i><i></i><i></i><i></i></span>
+      <div class="card-top"><span class="card-title">ELHASH.GG</span><span class="card-lang">Laravel</span></div>
+      <p class="card-desc">Gaming toolkit for CS2 &amp; Valorant — pro settings database, map callout viewer, utility calculators, and a Valorant crosshair generator, all on a shared design system.</p>
+      <a class="card-link" href="https://github.com/Amar-elhachemi/elhash-gg" target="_blank" rel="noopener">view repo →</a>
+    </div>
+    <div class="card">
+      <span class="card-reticle"><i></i><i></i><i></i><i></i></span>
+      <div class="card-top"><span class="card-title">CS2 Crosshair Generator</span><span class="card-lang">JavaScript</span></div>
+      <p class="card-desc">Standalone tool for building and exporting custom CS2 crosshair configs — the same engine powering the demo above.</p>
+      <a class="card-link" href="https://github.com/Amar-elhachemi/cs2-crosshair-generator" target="_blank" rel="noopener">view repo →</a>
+    </div>
+    <div class="card">
+      <span class="card-reticle"><i></i><i></i><i></i><i></i></span>
+      <div class="card-top"><span class="card-title">Google Maps Business Scraper</span><span class="card-lang">Python</span></div>
+      <p class="card-desc">Playwright/Chromium scraper that finds local businesses with no website.</p>
+      <a class="card-link" href="https://github.com/Amar-elhachemi/gmaps-scraper" target="_blank" rel="noopener">view repo →</a>
+    </div>
+    <div class="card">
+      <span class="card-reticle"><i></i><i></i><i></i><i></i></span>
+      <div class="card-top"><span class="card-title">Password Manager</span><span class="card-lang">JavaScript</span></div>
+      <p class="card-desc">Lightweight tool for generating and storing credentials securely.</p>
+      <a class="card-link" href="https://github.com/Amar-elhachemi/Password-manager" target="_blank" rel="noopener">view repo →</a>
+    </div>
+    <div class="card">
+      <span class="card-reticle"><i></i><i></i><i></i><i></i></span>
+      <div class="card-top"><span class="card-title">Amar Web Studio</span><span class="card-lang">Website Templates</span></div>
+      <p class="card-desc">Work-in-progress template system for local business sites — restaurants, cafés, and more.</p>
+      <a class="card-link" href="https://amar-elhachemi.github.io/portfolio-websites/" target="_blank" rel="noopener">Amar Web Studio | Website Templates →</a>
+    </div>
+    <div class="card">
+      <span class="card-reticle"><i></i><i></i><i></i><i></i></span>
+      <div class="card-top"><span class="card-title">Reels Trend Scraper</span><span class="card-lang">Python</span></div>
+      <p class="card-desc">Tracks and surfaces trending Reels content for content strategy work.</p>
+      <a class="card-link" href="https://github.com/Amar-elhachemi/reels-trend-scraper" target="_blank" rel="noopener">view repo →</a>
+    </div>
+    <div class="card">
+      <span class="card-reticle"><i></i><i></i><i></i><i></i></span>
+      <div class="card-top"><span class="card-title">Workspace Organizer</span><span class="card-lang">Python</span></div>
+      <p class="card-desc">Desktop utility for automated file and task organization.</p>
+      <a class="card-link" href="https://github.com/Amar-elhachemi/workspace-organizer" target="_blank" rel="noopener">view repo →</a>
+    </div>
+  </div>
+</section>
+
+<section id="certs" class="reveal layer">
+  <div class="deco deco-tl deco-cross"></div><div class="deco deco-br deco-square"></div>
+  <div class="cmd-label">cat service_record.log</div>
+  <h2 class="section-title">Certifications &amp; Training</h2>
+  <div class="log">
+    <div class="log-row"><span class="log-date">2026</span><span class="log-desc">Volunteer First-Aider — Algerian Civil Protection</span><span class="log-tag">first-aid</span></div>
+    <div class="log-row"><span class="log-date">2025</span><span class="log-desc">Brevet de Technicien — Informatique de Gestion</span><span class="log-tag">it</span></div>
+    <div class="log-row"><span class="log-date">2025</span><span class="log-desc">Contributing Author — "A Student's Journey on Linguistics," Djilali Bounaama University</span><span class="log-tag">academic</span></div>
+    <div class="log-row"><span class="log-date">2023</span><span class="log-desc">Technicien Supérieur, Restauration — INHT Tizi-Ouzou</span><span class="log-tag">hospitality</span></div>
+    <div class="log-row"><span class="log-date">2020</span><span class="log-desc">Qualifying Training — Introduction to Computing (6 months)</span><span class="log-tag">it</span></div>
+  </div>
+</section>
+
+<section id="contact" class="reveal layer">
+  <div class="deco deco-tl deco-ring"></div><div class="deco deco-br deco-tri"></div>
+  <div class="cmd-label">transmit --info</div>
+  <h2 class="section-title">Get in touch</h2>
+  <div class="contact-box">
+    <div class="term-line"><span class="prompt">$</span> <span class="out">echo $CONTACT</span></div>
+    <p style="color:var(--muted);margin-top:10px;max-width:520px;">Open to full-stack roles, freelance builds, and collaborations on gaming tools.</p>
+    <div class="contact-links">
+      <a class="clink" href="mailto:amar.elhachemi.cherki@elhashmix.xyz">✉ email</a>
+      <a class="clink" href="https://www.linkedin.com/in/amarelhachemicherki" target="_blank" rel="noopener">in linkedin</a>
+      <a class="clink" href="https://github.com/Amar-elhachemi" target="_blank" rel="noopener">⌥ github</a>
+      <a class="clink" href="tel:+213550030651">☎ +213 55 003 0651</a>
+    </div>
+  </div>
+</section>
+
+<footer>built by amar elhachemi cherki — miliana, algeria — © 2026</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
